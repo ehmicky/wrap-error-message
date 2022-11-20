@@ -70,11 +70,11 @@ not `require()`.
 ## wrapErrorMessage(error, message)
 
 `error` `Error | any`\
-`newMessage` `string`\
+`message` `string`\
 _Return value_: `Error`
 
-Append `message` to `error.message`. If `message` ends with `:` or `:\n`,
-prepend it instead.
+Appends `message` to `error.message`. If `message` ends with `:` or `:\n`,
+prepends it instead.
 
 Returns `error`. If `error` is not an `Error` instance, it is converted to one.
 
