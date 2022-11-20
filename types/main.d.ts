@@ -1,7 +1,4 @@
-/**
- * `wrap-error-message` options
- */
-export interface Options {}
+type NormalizeError<ErrorArg> = ErrorArg extends Error ? ErrorArg : Error
 
 /**
  *
@@ -9,4 +6,7 @@ export interface Options {}
  * ```js
  * ```
  */
-export default function wrapErrorMessage(value: any, options?: Options): object
+export default function wrapErrorMessage<ErrorArg>(
+  error: ErrorArg,
+  newMessage: string,
+): NormalizeError<ErrorArg>

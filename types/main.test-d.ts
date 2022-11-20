@@ -1,7 +1,14 @@
-import wrapErrorMessage, { Options } from 'wrap-error-message'
-import { expectType, expectAssignable } from 'tsd'
+import { expectType, expectAssignable, expectError } from 'tsd'
 
-expectType<object>(wrapErrorMessage(true))
+import wrapErrorMessage from 'wrap-error-message'
 
-wrapErrorMessage(true, {})
-expectAssignable<Options>({})
+const error = new Error('test')
+expectAssignable<Error>(wrapErrorMessage(error, ''))
+wrapErrorMessage(error, '')
+
+expectError(wrapErrorMessage(error))
+expectError(wrapErrorMessage(error, true))
+expectError(wrapErrorMessage(error, '', true))
+
+expectAssignable<Error>(wrapErrorMessage(null, ''))
+expectType<true>(wrapErrorMessage(error as Error & { prop: true }, '').prop)

@@ -8,14 +8,42 @@
 
 Properly wrap an error's message.
 
-Work in progress!
-
 # Features
+
+- Handle
+  [invalid errors](https://github.com/ehmicky/normalize-exception#features)
+- [Update `error.stack`](https://github.com/ehmicky/set-error-message) with the
+  new error message
+- Either append or prepend the new message
+- Trim whitespaces
 
 # Example
 
 ```js
 import wrapErrorMessage from 'wrap-error-message'
+
+wrapErrorMessage(new Error('Message.'), 'Additional message.')
+// Error: Message.
+// Additional message.
+
+wrapErrorMessage(new Error('Message.'), 'Additional message:')
+// Error: Additional message: Message.
+
+wrapErrorMessage(new Error('Message.'), 'Additional message:\n')
+// Error: Additional message:
+// Message.
+
+wrapErrorMessage(new Error('Message.'), '')
+// Error: Message.
+
+const invalidError = 'Message.'
+wrapErrorMessage(invalidError, 'Additional message.')
+// Error: Message.
+// Additional message.
+
+wrapErrorMessage(new Error('  Message with spaces  '), '  Additional message  ')
+// Error: Message with spaces
+// Additional message
 ```
 
 # Install
@@ -39,21 +67,47 @@ not `require()`.
 
 # API
 
-## wrapErrorMessage(value, options?)
+## wrapErrorMessage(error, message)
 
-`value` `any`\
-`options` [`Options?`](#options)\
-_Return value_: [`object`](#return-value)
+`error` `Error | any`\
+`newMessage` `string`\
+_Return value_: `Error`
 
-### Options
+Append `message` to `error.message`. If `message` ends with `:` or `:\n`,
+prepend it instead.
 
-Object with the following properties.
-
-### Return value
-
-Object with the following properties.
+Returns `error`. If `error` is not an `Error` instance, it is converted to one.
 
 # Related projects
+
+- [`modern-errors`](https://github.com/ehmicky/modern-errors): Handle errors
+  like it's 2022 🔮
+- [`error-custom-class`](https://github.com/ehmicky/error-custom-class): Create
+  one error class
+- [`error-class-utils`](https://github.com/ehmicky/error-class-utils): Utilities
+  to properly create error classes
+- [`error-serializer`](https://github.com/ehmicky/error-serializer): Convert
+  errors to/from plain objects
+- [`normalize-exception`](https://github.com/ehmicky/normalize-exception):
+  Normalize exceptions/errors
+- [`is-error-instance`](https://github.com/ehmicky/is-error-instance): Check if
+  a value is an `Error` instance
+- [`merge-error-cause`](https://github.com/ehmicky/merge-error-cause): Merge an
+  error with its `cause`
+- [`set-error-class`](https://github.com/ehmicky/set-error-class): Properly
+  update an error's class
+- [`set-error-message`](https://github.com/ehmicky/set-error-message): Properly
+  update an error's message
+- [`set-error-props`](https://github.com/ehmicky/set-error-props): Properly
+  update an error's properties
+- [`set-error-stack`](https://github.com/ehmicky/set-error-stack): Properly
+  update an error's stack
+- [`error-cause-polyfill`](https://github.com/ehmicky/error-cause-polyfill):
+  Polyfill `error.cause`
+- [`handle-cli-error`](https://github.com/ehmicky/handle-cli-error): 💣 Error
+  handler for CLI applications 💥
+- [`log-process-errors`](https://github.com/ehmicky/log-process-errors): Show
+  some ❤ to Node.js process errors
 
 # Support
 
