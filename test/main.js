@@ -1,6 +1,6 @@
 import test from 'ava'
-import templateName from 'template-name'
+import wrapErrorMessage from 'wrap-error-message'
 
 test('Dummy test', (t) => {
-  t.true(templateName(true))
+  t.true(wrapErrorMessage(true))
 })

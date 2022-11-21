@@ -1,7 +1,7 @@
-import templateName, { Options } from 'template-name'
+import wrapErrorMessage, { Options } from 'wrap-error-message'
 import { expectType, expectAssignable } from 'tsd'
 
-expectType<object>(templateName(true))
+expectType<object>(wrapErrorMessage(true))
 
-templateName(true, {})
+wrapErrorMessage(true, {})
 expectAssignable<Options>({})
