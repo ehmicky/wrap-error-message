@@ -80,8 +80,8 @@ Returns `error`. If `error` is not an `Error` instance, it is converted to one.
 
 # Related projects
 
-- [`modern-errors`](https://github.com/ehmicky/modern-errors): Handle errors
-  like it's 2023 🔮
+- [`modern-errors`](https://github.com/ehmicky/modern-errors): Handle errors in
+  a simple, stable, consistent way
 - [`error-custom-class`](https://github.com/ehmicky/error-custom-class): Create
   one error class
 - [`error-class-utils`](https://github.com/ehmicky/error-class-utils): Utilities
