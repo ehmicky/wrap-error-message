@@ -1,5 +1,6 @@
 import test from 'ava'
 import { each } from 'test-each'
+
 import wrapErrorMessage from 'wrap-error-message'
 
 each([null, undefined], ({ title }, newMessage) => {
