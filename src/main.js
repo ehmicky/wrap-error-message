@@ -2,7 +2,7 @@ import normalizeException from 'normalize-exception'
 import setErrorMessage from 'set-error-message'
 
 // Wrap an error with a message
-export default function wrapErrorMessage(error, newMessage, oldMessage) {
+const wrapErrorMessage = (error, newMessage, oldMessage) => {
   if (typeof newMessage !== 'string') {
     throw new TypeError(
       `Second argument must be a message string: ${newMessage}`,
@@ -14,6 +14,8 @@ export default function wrapErrorMessage(error, newMessage, oldMessage) {
   return setErrorMessage(errorA, message, oldMessage)
 }
 
+export default wrapErrorMessage
+
 // By default, `newMessage` is appended
 //  - This is because the current message is usually the innermost one,
 //    i.e. the most relevant one which should be read first by users
@@ -22,7 +24,7 @@ export default function wrapErrorMessage(error, newMessage, oldMessage) {
 // Each error message is on its own line, for clarity.
 // Empty messages are ignored
 //  - This is useful when wrapping an error properties, but not message
-const getMessage = function (rawNewMessage, rawCurrentMessage) {
+const getMessage = (rawNewMessage, rawCurrentMessage) => {
   const newMessage = rawNewMessage.trim()
   const currentMessage = rawCurrentMessage.trim()
 
@@ -37,7 +39,7 @@ const getMessage = function (rawNewMessage, rawCurrentMessage) {
   return concatMessages(newMessage, currentMessage, rawNewMessage)
 }
 
-const concatMessages = function (newMessage, currentMessage, rawNewMessage) {
+const concatMessages = (newMessage, currentMessage, rawNewMessage) => {
   if (!newMessage.endsWith(PREPEND_CHAR)) {
     return `${currentMessage}\n${newMessage}`
   }
