@@ -51,7 +51,7 @@
     "lib": "src"
   },
   "dependencies": {
-    "normalize-exception": "^2.11.0",
+    "normalize-exception": "^3.0.0",
     "set-error-message": "^1.6.0"
   },
   "devDependencies": {
