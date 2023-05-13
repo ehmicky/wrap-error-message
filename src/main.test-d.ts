@@ -1,4 +1,5 @@
 import { expectType, expectAssignable } from 'tsd'
+
 import wrapErrorMessage from 'wrap-error-message'
 
 const error = new Error('test')
