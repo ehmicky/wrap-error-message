@@ -52,7 +52,7 @@ wrapErrorMessage(new Error('  Message with spaces  '), '  Additional message  ')
 npm install wrap-error-message
 ```
 
-This package works in both Node.js >=14.18.0 and
+This package works in both Node.js >=16.17.0 and
 [browsers](https://raw.githubusercontent.com/ehmicky/dev-tasks/main/src/browserslist).
 
 This is an ES module. It must be loaded using
@@ -62,7 +62,7 @@ not `require()`. If TypeScript is used, it must be configured to
 not CommonJS.
 
 <!--
-This package works in Node.js >=14.18.0.
+This package works in Node.js >=16.17.0.
 
 This is an ES module. It must be loaded
 using
