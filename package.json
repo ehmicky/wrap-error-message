@@ -42,7 +42,10 @@
   ],
   "license": "MIT",
   "homepage": "https://www.github.com/ehmicky/wrap-error-message",
-  "repository": "ehmicky/wrap-error-message",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehmicky/wrap-error-message.git"
+  },
   "bugs": {
     "url": "https://github.com/ehmicky/wrap-error-message/issues"
   },
