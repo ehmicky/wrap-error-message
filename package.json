@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "normalize-exception": "^3.0.0",
-    "set-error-message": "^2.0.1"
+    "set-error-message": "^3.0.0"
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^2.0.102",
